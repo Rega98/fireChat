@@ -26,7 +26,15 @@ export class ChatService {
 
     return this.itemsCollection.valueChanges().pipe(map( (mensajes: Mensaje[]) =>{
       console.log(mensajes);
-      this.chats = mensajes;
+      //this.chats = mensajes;
+      this.chats = [];
+
+      for (let mensaje of mensajes){
+        this.chats.unshift( mensaje )
+      }
+
+      return this.chats;
+
     }));
   }
 
